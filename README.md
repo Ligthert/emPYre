@@ -36,7 +36,8 @@ TODO:
         if (irand (2) == 0) /* defender hits? */
             att_obj->hits -= piece_attr[def_obj->type].strength;
         else def_obj->hits -= piece_attr[att_obj->type].strength;
-    }```
+    }
+```
 
 |Piece|You|Enemy|Moves|Hits|Str|Cost|
 | --- | ---| ---| ---| ---| ---| ---|
