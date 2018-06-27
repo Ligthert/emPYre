@@ -52,3 +52,21 @@ TODO:
 |Satellite|Z|z|10|--|--|50(60)|
 
 Other details: http://www.catb.org/~esr/vms-empire/vms-empire.html
+
+
+```
+typedef struct piece_attr {
+        char sname; /* eg 'C' */
+        char name[20]; /* eg "aircraft carrier" */
+        char nickname[20]; /* eg "carrier" */
+        char article[20]; /* eg "an aircraft carrier" */
+        char plural[20]; /* eg "aircraft carriers" */
+        char terrain[4]; /* terrain piece can pass over eg "." */
+        uchar build_time; /* time needed to build unit */
+        uchar strength; /* attack strength */
+        uchar max_hits; /* number of hits when completely repaired */
+        uchar speed; /* number of squares moved per turn */
+        uchar capacity; /* max objects that can be held */
+        long range; /* range of piece */
+} piece_attr_t;
+```
