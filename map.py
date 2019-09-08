@@ -4,11 +4,14 @@ from collections import defaultdict
 
 class Map():
 
+  def __init__( self, width=150, height=50, sealevel=0 ):
 
-  def __init__( self, width, height, sealevel=0 ):
+    # Dealing with basic params
     self.width = width
     self.height = height
     self.sealevel = sealevel
+
+    # The master map we are going to need
     self.map = defaultdict(dict)
     self.coast = []
 
@@ -38,10 +41,9 @@ class Map():
 
   # Find coastal positions
   def findCoast(self):
-    # Starting positions!
+    # Should replace with a range()-loop
     y = 1
 
-    # Mainloop
     while y <= self.height:
       x = 1
       while x <= self.width:
@@ -96,7 +98,6 @@ class Map():
 
 
   def printWorld(self):
-    # Print the map
     for y in range(1,self.height+1):
       for x in range(1,self.width+1):
         if self.map[x][y] == "c":

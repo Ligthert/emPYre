@@ -1,7 +1,7 @@
 from map import Map
 
 if __name__ == "__main__":
-  map = Map(150,50)
+  map = Map()
   map.generateMap()
   map.findCoast()
   map.generateCities()
