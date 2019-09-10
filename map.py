@@ -1,6 +1,7 @@
 import noise
 import random
 from collections import defaultdict
+import math
 
 class Map():
 
@@ -19,6 +20,7 @@ class Map():
     self.cities = []
     self.num_cities = 100
     self.coast_percentage = 25
+    self.distance = 5
 
 
   def generateMap(self):
@@ -83,13 +85,24 @@ class Map():
         while found == 0:
           randX = random.randint(1,self.width)
           randY = random.randint(1,self.height)
-          #print("Round "+str(round)+": Considering "+str(randX)+"x"+str(randY)+" of type "+self.map[randX][randY])
-          if self.map[randX][randY]=="l":
+          if self.map[randX][randY]=="l" and self.noCityNear(3,randX,randY):
             found = 1
             coords = {}
             coords['x'] = randX
             coords['y'] = randY
             self.cities.append(coords)
+
+
+  def noCityNear(self,distance,x,y):
+    noCityNear = True
+    for city in self.cities:
+      if self.calcDistance(city,x,y)<self.distance:
+        noCityNear = False
+    return noCityNear
+
+
+  def calcDistance(self,city,x,y):
+    return math.sqrt( ((city['x']-x)**2)+((city['y']-y)**2) )
 
 
   def addCities(self):
